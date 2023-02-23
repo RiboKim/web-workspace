@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Servlet-DB 연동프로젝트</h1>
+	<hr>
+	<!-- 기능을 위해서 필요한 것 : 요청->Servlet(controller에 만들거)->쿼리
+		select * from member_tbl
+		->원하는 처리를 위한 쿼리문 수행을 위해서 필요한 데이터가 없음
+	 -->
+	 <h3><a href="/allMember.do">1. 전체회원조회 </a></h3>
+	 
+	 <!-- 
+	 	select * from member_tbl where member_id='입력아이디'
+	 	=>아이디를 입력받아야하는 상황 => 아이디를 입력받는 페이지로 이동
+	  -->
+	 <h3><a href="/html/searchMemberFrm.html">2. 아이디로 회원조회 </a></h3>
+	 <!-- 
+	 	사용할 쿼리 INSERT INTO MEMBER_TBL VALUES
+	 	MEMBER_SEQ.NEXTVAL, 'MEMBER_ID', 'MEMBER_PW', 'MEMBER_NAME', 'MEMBER_PHONE','MEMBER_ADDR', 3, TO_CHAR(SYSDATE, 'YYYY-MM-DD')
+	 	입력받아야할 항목이 있으면 입력받는 페이지 생성해서 이동
+	 	아이디, 비밀번호, 이름, 전화번호, 주소
+	 	회원가입 성공/실패 메세지까지 화면에 출력
+	  -->
+	  <h3><a href="/html/joinMemberFrm.html">3. 회원가입</a></h3>
+	  <!-- 
+	  비밀번호, 전화번호, 주소
+		아이디로 조회해서
+		내 정보가 싹 보이고
+		위 3개를 제외하고 나머지는 수정이 안된다
+		readonly로 ㄱㄱ
+	   -->
+	   <h3><a href="/html/updateMemberFrm.html">4. 정보수정</a></h3>
+</body>
+</html>

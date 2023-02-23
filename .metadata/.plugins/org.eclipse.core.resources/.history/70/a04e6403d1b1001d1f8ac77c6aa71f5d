@@ -1,0 +1,8 @@
+package kr.or.iei.board.model.vo;
+
+import java.util.ArrayList;
+
+public class BoardPageData {
+	private ArrayList<Board> list;
+	
+}

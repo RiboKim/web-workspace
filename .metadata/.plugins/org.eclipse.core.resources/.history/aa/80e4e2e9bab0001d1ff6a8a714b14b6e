@@ -1,0 +1,10 @@
+package kr.or.iei.board.model.vo;
+
+public class NoticeComment {
+	private int ncNo;
+	private String ncWriter;
+	private	String ncContent;
+	private String ncDate;
+	private int noticeRef;
+	private int ncRef;
+}

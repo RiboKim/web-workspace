@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+ 	<%@include file = "/WEB-INF/views/common/header.jsp" %>
+ <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+	<div class="page-content">
+		<div class="page-title">결제모듈</div>
+		<input type="text" id="pay">
+		<button id="payBtn" class="btn bc1">결제하기</button>
+	</div>
+	
+<script>
+	$("#payBtn").on("click",function(){
+		const price = $("#pay").val();
+		const d = new Date();
+		const date = d.getFullYear()+""+(d.getMonth()+1)+""+d.getDate()
+					+""+d.getHours()+""+d.getMinutes()+""+d.getSeconds();
+		
+		IMP.init("imp72580518");
+		
+		IMP.request_pay({
+			pg : "html5_inicis",
+			pay_method : "card",
+			merchant_uid : "상품번호_"+date,//상점에서 관리하는 주문번호 겹치지 않게 하려고 시,분,초 까지 끌어온거
+			name : "결제 테스트",		//결제이름
+			amount : price,			//결제금액
+			buyer_email : "kingodribo@gmail.com",
+			buyer_name : "구매자",
+			buyer_tel : "010-1111-2222",
+			buyer_addr : "서울시 영등포구 당산동",
+			buyer_postcode : "12345";
+		},function(rsp){
+		
+		});
+		
+	});
+</script>
+	<%@include file = "/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    int totalCount = (int)request.getAttribute("totalCount");
+    %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@include file = "/WEB-INF/views/common/header.jsp" %>
+	<div class="page-content">
+		<div class="page-title">사진게시판</div>
+		<%if(m != null) {%>
+		<a href="/photoWriteFrm.do" class="btn bc4">글쓰기</a>
+		<%} %>
+		<div class="photoWrapper posting-wrap">
+		
+		</div>
+		<button class="btn bc4 bs4" id="more-btn" totalCount="<%=totalCount %>" currentCount="0" value="1">더보기</button>
+		<%--
+		 totalCount : 전체 게시물 수
+		 currentCount : 실제 jsp에 가져온 게시물 수
+		 value : 더보기 요청 시 다음에 가져올 시작번호
+		 --%>
+	</div>
+	<script>
+		$("#more-btn").on("click",function(){
+			const start = $(this).val();//추가로 가져올 게시물 시작번호
+			const amount = 5;//더보기 클릭했을때 추가로 가져올 게시물 수
+			$.ajax({
+				url : "/photoMore.do",
+				type : "post",
+				data : {start : start, amount : amount},
+				success : function(data){
+					console.log(data);
+					for(let i=0;i<data.length;i++){
+						const p = data[i];
+						const div = $("<div>");
+						div.addClass("posing-item");
+						//<div class="posting-item"></div>
+						
+						const imgDiv = $("<div>");
+						imgDiv.addClass("posting-img");
+						//<div class="posting-img"></div>
+						
+						const img = $("<img>");
+						img.attr("src","/upload/photo/"+p.filepath);
+						//<img src="/upload/photo/파일이름">
+						
+						imgDiv.append(img);
+						/*
+						//<div class="posting-img">
+							<img src="/upload/photo/파일이름">
+						</div>
+						*/
+						
+						const titleDiv = $("<div>");
+						titleDiv.addClass("posting-content");
+						//<div class="posting-content"></div>
+						const title = $("<p>");
+						title.append(p.photoTitle);
+						//<p>글제목</p>
+						titleDiv.append(title);
+						/*
+						<div class="posting-content">
+							<p>글제목</p>
+						</div>
+						*/
+					}
+				},
+				error : function(){
+					console.log("서버요청실패");
+				}
+			});
+		});
+	</script>
+	<%@include file = "/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

@@ -1,0 +1,6 @@
+package kr.or.iei.notice.model.vo;
+
+public class NoticePageData {
+	private ArrayList<Notice> list;
+	private String pageNavi;
+}

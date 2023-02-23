@@ -1,0 +1,79 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#noticeWrite td, #noticeWrite th{
+		border : 1px solid #ccc;
+	}
+</style>
+</head>
+<body>
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<script src="/summernote/summernote-lite.js"></script>
+	<script src="/summernote/lang/summernote-ko-KR.js"></script>
+	<link rel="stylesheet" href="/summernote/summernote-lite.css">
+	
+	<div class="page-content">
+		<div class="page-title">공지사항작성</div>
+		<form action="/noticeWrite.do" method="post" enctype="multipart/form-data"> <!-- 첨부파일이 있는 경우에는 무조건 post -->
+			<table class="tbl" id="noticeWrite">
+				<tr class="tr-1">
+					<th class="td-3">제목</th>
+					<td colspan="3">
+						<input type="text" name="noticeTitle" class="input-form">
+					</td>
+				</tr>
+				<tr class="tr-1">
+					<th class="td-3">작성자</th>
+					<td>
+						<%=m.getMemberId() %>
+						<input type="hidden" name="noticeWriter" value="<%=m.getMemberId() %>">
+					</td>
+					<th class="td-3">첨부파일</th>
+					<td><input type="file" name="upfile"></td>
+				</tr>
+				<tr class="tr-1">
+					<td colspan="4" style="text-align:left;">
+						<!-- input type은 여러줄 치는게 불가능하기때문에 textarea로 해줘야한다 -->
+						<textarea id="noticeContent" name="noticeContent" class="input-form"></textarea>
+					</td>
+				</tr>
+				<tr class="tr-1">
+					<td colspan="4">
+						<button type="submit" class="btn bc1 bs4">공지사항작성</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script>
+	$("#noticeContent").summernote({
+		height : 400,
+		lang : "ko-KR"
+		callbacks : {
+			onImageUpload : function(files){
+				uploadImage(files[0],this);
+			}
+		}
+	});
+	function uploadImage(file, editor){
+		//ajax를 통해서 서버에 이미지를 업로드
+		//업로드된 이미지의 경로를 받아오는 역할
+		//받아온 이후 -> editor에 이미지경로를 전달해서 화면에 표현
+		//<form method="post" enctype="multipart/form-data"> 태그의 역할
+		const form = new FormData();
+		/*
+		<form>
+			<input type="file" name="file">
+		</form>
+		*/
+		form.append("file",file)
+	}
+	</script>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

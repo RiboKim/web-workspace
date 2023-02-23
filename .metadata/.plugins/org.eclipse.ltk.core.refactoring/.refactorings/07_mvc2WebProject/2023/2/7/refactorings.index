@@ -1,0 +1,17 @@
+1676353033977	Move compilation unit
+1676360969477	Move file
+1676445430101	Copy file
+1676526771618	Rename package 'kr.or.iei.notice.service'
+1676526783410	Rename package 'kr.or.iei.notice.dao'
+1676526792867	Rename package 'kr.or.iei.notice.controller'
+1676527376357	Delete element
+1676527921132	Delete element
+1676537093159	Rename package 'kr.or.iei.free.board.controller'
+1676537103127	Rename package 'kr.or.iei.free.board.dao'
+1676537109036	Rename package 'kr.or.iei.board.mode.ldao'
+1676537125336	Rename package 'kr.or.iei.free.board.service'
+1676537141443	Rename package 'kr.or.iei.free.board.vo'
+1676537727263	Move folder
+1676539090532	Rename resource 'BoardList.jsp'
+1676539095276	Rename resource 'BoardWriteFrm.jsp'
+1676539149130	Rename resource 'Board'

@@ -1,0 +1,9 @@
+package kr.or.iei.photo.vo;
+
+public class Photo {
+		private int photoNo;
+		private String photoWriter;
+		private String photoTitle;
+		private String photoContent;
+		private String filePath;
+}

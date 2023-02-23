@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>[김건형] 메인페이지입니다.</h1>
+	<h3><a href ="/request.do">1.서버요청하기</a></h3>
+	<h3><a href="/response.do">2.서버요청하고 응답받기</a></h3>
+	<h3><a href="/sendData1.do?name=김건형&test=abc">3.서버로 값 전송하기</a></h3>
+	<hr>
+	<form action="/sendData2.do" method="get">
+		<label for="id">아이디</label>
+		<input type="text" name="memberId" id="id"><br>
+		<label for="pw">비밀번호</label>
+		<input type="password" name="memberPw" id="pw"><br>
+		<input type="submit" value="서버로 전송">
+	</form>
+	<hr>
+	<form action="/sendData3.do" method="post">
+		<input type="text" name="data1"><br>
+		<input type="text" name="text"><br>
+		<input type="text" name="abc"><br>
+		<input type="submit" value="제출">
+	</form>
+	<hr>
+	<form action="/sendData.do" method="post">
+		문자열 전송 : <input type="text" name="str"><br>
+		숫자 전송 : <input type="text" name="num"><br>
+		성별 : 
+			<input type="radio" name="gender" value="남" id="m">
+			<label for="m">남자</label>
+			<input type="radio" name="gender" value="여" id="f">
+			<label for="f">여자</label>
+			<br>
+		취미 : 
+			<input type="checkbox" name="hobby" value="공부" id="study">
+			<label for="study">공부</label>
+			<input type="checkbox" name="hobby" value="독서" id="book">
+			<label for="book">책읽기</label>
+			<input type="checkbox" name="hobby" value="잠" id="sleep">
+			<label for="sleep">잠자기</label>
+			<br>
+		연령대 :
+		<select name="age">
+			<option value="10">10대</option>
+			<option value="20">20대</option>
+			<option value="30">30대</option>
+			<option value="40">40대</option>
+		</select>
+		<br>
+		<input type="hidden" name="hiddenData" value="히든데이터">
+		<input type="text" name="input1" value="테스트1" readonly><br>
+		<input type="text" name="input2" value="테스트2" disabled><br>
+		<textarea name="comment"></textarea><br>
+		<div name="test3" value="테스트3">div데이터</div>
+		<input type="submit" value="서버로 전송">
+	</form>
+	<input type="text" name="input3" value="테스트4">
+	<hr>
+	<form action="/plus.do" method="post">
+		<input type="text" name="num1">
+		+
+		<input type="text" name="num2">
+		<input type="submit" name="더하기">
+	</form>
+	<hr>
+	<form action="/calc.do" method="post">
+	<input type="text" name="su1">
+	<select name="oper">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+		<option value="%">%</option>
+	</select>
+	<input type="text" name="su2">
+	<input type="submit" name="계산하기">	
+	</form>
+	
+	
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

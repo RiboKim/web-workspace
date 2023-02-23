@@ -1,0 +1,18 @@
+package kr.or.iei.api.controller;
+
+import java.util.Properties;
+
+public class MailSender {
+	public boolean sendMail(String mailTitle, String receiver, String mailContent) {
+		boolean result = false;
+		//이메일 통신설정
+		Properties prop = System.getProperties();
+		prop.put("mail.smtp.host", "smtp.gmail.com");
+		prop.put("mail.smtp.port", 587);
+		prop.put("mail.smtp.auth", "true");
+		prop.put("mail.smtp.starttls.enable", true);
+		prop.put("mail.stml.ssl.protocols", "TLSv1.2");
+		
+		return result;
+	}//sendMail
+}

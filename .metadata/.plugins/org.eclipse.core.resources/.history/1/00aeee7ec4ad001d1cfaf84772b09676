@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@include file="/WEB-INF/views/common/header.jsp" %>
+	<div class="page-content">
+		<div class="page-title">공지사항작성</div>
+		<form action="/noticeWrite.do" method="post" enctype="multipart/form-data"> <!-- 첨부파일이 있는 경우에는 무조건 post -->
+			<table class="tbl" id="noticeWrite">
+				<tr class="tr-1">
+					<th class="td-3">제목</th>
+					<td colspan="3">
+						<input type="text" name="noticeTitle" class="input-form">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<%@include file="/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

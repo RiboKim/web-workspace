@@ -1,0 +1,14 @@
+package kr.or.iei.board.model.service;
+
+import kr.or.iei.board.model.dao.BoardDao;
+
+public class BoardService {
+	private BoardDao dao;
+
+	public BoardService() {
+		super();
+		dao = new BoardDao();
+	}
+	
+	
+}

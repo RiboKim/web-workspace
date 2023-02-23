@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%@include file = "/WEB-INF/views/common/header.jsp" %>
+	<div class="content-page">
+		<div class="content-title">자유게시판 작성</div>
+		<form action=/noticeWrite.do" method="post" enctype="multipart/form/data">
+			<table class="tbl" id="boardWrite">
+			<tr class="tr-1">
+				<td class="td-3">제목</td>
+				<td colspan="3">
+					<input type="text" name="boardTitle" class="input-form">
+				</td>
+			</tr>
+			<tr class="tr-1">
+				<td class="td-3">작성자</td>
+					<input type="hidden" name="boardWriter" value="<%=m.getMemberId() %>">
+			</tr>
+			<tr class="tr-1">
+				<td class="td-3">첨부파일</td>
+				<td
+				
+			</tr>
+			</table>
+		</form>
+	</div>
+	<%@include file = "/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>

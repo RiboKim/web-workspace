@@ -1,0 +1,47 @@
+package kr.or.iei.board.model.service;
+
+import java.sql.Connection;
+
+import common.JDBCTemplate;
+import kr.or.iei.board.model.dao.BoardDao;
+import kr.or.iei.board.model.vo.Board;
+import kr.or.iei.board.model.vo.BoardViewData;
+
+public class BoardService {
+	private BoardDao dao;
+
+	public BoardService() {
+		super();
+		dao = new BoardDao();
+	}
+
+	public int insertBoard(Board b) {
+		Connection conn = JDBCTemplate.getConnection();
+		int result = dao.insertBoard(conn, b);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+		}else {
+			JDBCTemplate.rollback(conn);
+		}
+		JDBCTemplate.close(conn);
+		return result;
+	}
+
+	public BoardViewData selectOneBoard(int boardNo) {
+		Connection conn = JDBCTemplate.getConnection();
+		//커넥션 닫기 전에 조회수 상승
+		int result = dao.updateReadCount(conn,boardNo);
+		if(result>0) {
+			JDBCTemplate.commit(conn);
+			Board b = dao.selectOneBoard(conn,boardNo);
+			//1.일반댓글조회
+			//2.대댓글조회
+			BoardViewData bvd = new BoardViewData(b);
+			JDBCTemplate.close(conn);
+			return bvd;
+		}
+		return null;
+	}
+	
+	
+}

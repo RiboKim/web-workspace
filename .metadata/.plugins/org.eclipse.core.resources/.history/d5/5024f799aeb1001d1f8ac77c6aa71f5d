@@ -1,0 +1,5 @@
+package kr.or.iei.photo.dao;
+
+public class PhotoDao {
+
+}

@@ -1,0 +1,15 @@
+package kr.or.iei.photo.dao;
+
+import java.sql.Connection;
+
+public class PhotoDao {
+
+	public int totalCount(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int totalCount = 0;
+		Stiring query = "select count(*) as cnt from photo"
+		return 0;
+	}
+
+}

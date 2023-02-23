@@ -1,0 +1,12 @@
+package kr.or.iei.board.model.vo;
+
+public class Board {
+	private int boardNo;
+	private String boardTitle;
+	private String boardWriter;
+	private String boardContent;
+	private int readCount;
+	private String regDate;
+	private String fileName;
+	private String filePath;
+}

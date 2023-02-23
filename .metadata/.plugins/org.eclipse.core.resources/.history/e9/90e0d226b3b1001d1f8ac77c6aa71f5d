@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.photoWrite th, .photoWrite td{
+		border : 1px solid #ccc;
+	}
+</style>
+</head>
+<body>
+	<%@include file = "/WEB-INF/views/common/header.jsp" %>
+	<div class="page-content">
+		<div class="page-title">사진게시판 작성</div>
+		<form action="/photoWrite.do" method="post" enctype="multipart/form-data">
+			<table class = "tbl photoWrite">
+				<tr class="tr-1">
+				
+				</tr>
+			</table>
+		</form>
+	</div>
+	<%@include file = "/WEB-INF/views/common/footer.jsp" %>
+</body>
+</html>
